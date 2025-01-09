@@ -16,6 +16,8 @@ ol {
   @apply mx-auto w-full xl:max-w-[1200px] px-[15px];
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap");
+
 .bonky {
   font-family: "Bonky free personal use";
 }
@@ -29,3 +31,4 @@ ol {
 .gotham {
   font-family: "Gotham", sans-serif;
 }
+
