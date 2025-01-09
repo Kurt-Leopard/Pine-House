@@ -15,3 +15,17 @@ ol {
 .container {
   @apply mx-auto w-full xl:max-w-[1200px] px-[15px];
 }
+
+.bonky {
+  font-family: "Bonky free personal use";
+}
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Font Squirrel or your custom hosting */
+
+.gotham {
+  font-family: "Gotham", sans-serif;
+}
