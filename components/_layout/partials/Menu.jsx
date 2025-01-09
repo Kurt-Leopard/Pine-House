@@ -1,38 +1,27 @@
-import globalData from "@/lib/preBuildScripts/static/globalData.json";
-import Locales from "@/components/_layout/partials/Locales";
-import persistentStore from "@/lib/store/persistentStore";
 import Link from "next/link";
 import globalState from "@/lib/store/globalState";
+import { LogoIcon, SignInIcon, SearchIcon } from "@/public/svg/svg";
+import pineHouseMenu from "@/lib/preBuildScripts/static/pineHouseMenu.json";
+
 export default function Menu() {
   const ready = globalState((state) => state.ready);
-  const locale = persistentStore((state) => state.locale);
-  const { menus, locales } = globalData;
-  const defaultLocale = locales.find((n) => n.is_default);
-  const activeMenu =
-    menus?.find((n) => n.locale === locale) ||
-    menus.find((n) => n.locale === defaultLocale.code);
-  const nodes = activeMenu?.parentNodes || [];
 
-  const staticMenuItems = [
-    { label: "Home", url: "/", target: "" },
-    { label: "About", url: "/about", target: "" },
-    { label: "Contact", url: "/contact", target: "" },
-  ];
+  const dynamicMenuItems = pineHouseMenu?.nodes;
   return (
-    <header className="py-[15px] z-[1000] sticky top-0 bg-white shadow-md">
-      <div className="container">
+    <header className="py-[30px] z-[1000] sticky top-0 bg-white shadow-md text-[#7F7F7F] font-montserrat ">
+      <div className="px-32">
         <div className="flex flex-wrap justify-between items-center">
           <div className="logo">
             <Link href="/">
-              <div className="w-[200px] rounded-sm h-[70px] bg-gray-300 flex items-center justify-center p-[15px]">
-                Logo Here
+              <div className="w-[200px] rounded-sm h-[70px] flex items-center justify-center p-[15px]">
+                <LogoIcon />
               </div>
             </Link>
           </div>
-          <div className="flex items-center justify-between">
-            <nav className="flex items-center gap-[15px]">
+          <div className="flex items-center justify-between uppercase">
+            <nav className="flex items-center gap-[100px] ">
               {ready &&
-                staticMenuItems.map((node, i) => {
+                dynamicMenuItems.map((node, i) => {
                   return (
                     <Link href={node.url} key={i} target={node.target}>
                       {node.label}
@@ -41,17 +30,33 @@ export default function Menu() {
                 })}
             </nav>
           </div>
+          <div className="flex items-center gap-[60px]">
+            <div className="flex items-center gap-[0px]">
+              <SignInIcon />
+              <ul className="uppercase flex items-center justify-between w-[200px] list-none">
+                <li className="flex-1">
+                  <Link
+                    href="/"
+                    className="border-r-2  w-full flex items-center justify-center py-2"
+                  >
+                    Sign In
+                  </Link>
+                </li>
+                <li className="flex-1">
+                  <Link
+                    href="/"
+                    className="w-full flex items-center justify-center  py-2"
+                  >
+                    Join Now
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <SearchIcon />
+            </div>
+          </div>
         </div>
-
-        {/* {ready &&
-        nodes.map((node, i) => {
-          return (
-            <Link href={node.url} key={i} target={node.target}>
-              {node.label}
-            </Link>
-          );
-        })}
-      <Locales /> */}
       </div>
     </header>
   );

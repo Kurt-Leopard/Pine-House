@@ -14,6 +14,7 @@ module.exports = {
       },
       fontFamily: {
         lato: ["lato", ...defaultTheme.fontFamily.sans],
+        montserrat: ["Montserrat", "sans-serif"],
       },
     },
     screens: {
