@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 export default function OffersBlock({ block, mediaHandler }) {
-  console.log(block);
   return (
     <>
       <div className="relative">

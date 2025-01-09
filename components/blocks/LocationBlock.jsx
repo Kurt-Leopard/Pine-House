@@ -1,10 +1,6 @@
 import Image from "next/image";
 
 export default function LocationBlock({ block, mediaHandler }) {
-  console.log(
-    mediaHandler["main.image"]?.[0]?.conversions?.desktop ||
-      mediaHandler["main.image"]?.[0]?.original
-  );
   return (
     <>
       <div className="relative">

@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 export default function MeetingPlacesBlock({ block, mediaHandler }) {
-  console.log(block);
   return (
     <div className="relative">
       <div className="grid grid-cols-3 h-[802px]">
